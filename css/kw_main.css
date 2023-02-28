@@ -1,0 +1,40 @@
+body{
+    margin:0;
+    font-family: Tahoma, Helvetica, sans-serif;
+}
+.topbar li{
+    list-style:none;
+    float: left;
+    margin-right: 10em;
+    padding-top:1em;
+    padding-bottom:1em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.topbar{
+    clear:both;
+    display:block;
+    margin:0;
+        padding: 0;
+        background-color: #d6fdfd;
+}
+.topitem:hover{
+    background-color:#90caca ;
+}
+.clear{
+    clear: both;
+}
+.rightbar{
+    float:right;
+    padding-right: 3em;
+    margin-right:2em
+}
+.rightbar li{
+    list-style:none;
+}
+#topic{
+    font-size:10pt;
+}
+.rightbar ul{
+    font-size:20pt
+}

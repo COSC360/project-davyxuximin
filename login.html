@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>KnowWell</title>
+    <link rel = "stylesheet" href="login.css">
+    <script>
+        function validateForm(){
+            var x=document.forms["loginInfo"]["Email"].value;
+            var at=x.indexOf("@");
+            var dot=x.lastIndexOf(".");
+            if (at<1 || dot<at+2 || dot+2>=x.length){
+                alert("Invalid Email");
+                  return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="name">
+        <h1>Know Well</h1>
+    </div>
+
+
+<div class="login">
+    <form name="loginInfo" onsubmit="return validateForm();" method="post" action="http://www.randyconnolly.com/tests/process.php">
+        <fieldset id="fs">
+            <h3>Log in</h2>
+        <label>Email:</label>
+        <input type="text" name="Email" id="email" value="Enter Email"><br><br>
+
+        <label>Password:</label>
+        <input type="password" name="Password" value=""><br><br>
+        
+        <input type="submit" value="Log in">
+        <p>Don't have an account?<a href="signup.html">Sign up</a></p>
+       </fieldset>
+    </form>
+
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
