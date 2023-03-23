@@ -1,40 +1,116 @@
-body{
-    margin:0;
-    font-family: Tahoma, Helvetica, sans-serif;
-}
-.topbar li{
-    list-style:none;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d6fdfd;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #d6fdfd;
+    border-bottom: 1px solid #90caca;
+  }
+  
+  .topnav a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #90caca;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #90caca;
+    color: white;
+  }
+  
+  .topnav .search-container {
     float: left;
-    margin-right: 10em;
-    padding-top:1em;
-    padding-bottom:1em;
-    padding-left: 2em;
-    padding-right: 2em;
-}
-.topbar{
-    clear:both;
-    display:block;
-    margin:0;
-        padding: 0;
-        background-color: #d6fdfd;
-}
-.topitem:hover{
-    background-color:#90caca ;
-}
-.clear{
-    clear: both;
-}
-.rightbar{
+  }
+  
+  .topnav input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .topnav .search-container button {
+    float: left;
+    padding: 6px 10px;
+    margin-top: 8px ;
+    background: #d6fdfd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+  .topnav img{
+    width:1em;
+  }
+  .right{
     float:right;
-    padding-right: 3em;
-    margin-right:2em
-}
-.rightbar li{
-    list-style:none;
-}
-#topic{
-    font-size:10pt;
-}
-.rightbar ul{
-    font-size:20pt
-}
+  }
+  #home{
+    float:left;
+  }
+  .content{
+
+    margin-left: 5em;
+    margin-top: 2em;
+  }
+ 
+
+  .title{
+    padding:5px;
+    border-bottom: 1px solid black;
+  }
+  
+  .qcon img{
+    width:20em;
+    
+  }
+  .user{
+    width:3em !important;
+    border-radius:50%;
+  }
+  .userinfo figure{
+    margin:0;
+  }
+  .userinfo figcaption{
+    font-size: 7pt;
+  }
+  .questre {
+    background-color: white;
+    width: 70%;
+    display: inline-block;
+  }
+  
+  .qcon {
+    padding: 5px;
+    border-bottom: 1px solid black;
+  }
+  
+  .rightbar {
+    float: right;
+    background-color: white;
+    margin-right: 3em;
+    width: 18em;
+  }
+  .rightbar h4{
+    padding:1em;
+  }
+  .qcon-text{
+    width:80%;
+    display: inline-block;
+  }
+  .userinfo{
+    float: right;
+    padding: 10px;
+  }
