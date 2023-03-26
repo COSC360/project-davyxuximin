@@ -39,7 +39,7 @@
         $search = $connection->real_escape_string($search);
     
     // Perform the search in your database
-    $sql = "SELECT * FROM questions WHERE questcontent LIKE '%$search%'";
+    $sql = "SELECT * FROM questions WHERE questcontent OR questtitle LIKE '%$search%'";
     $result = $connection->query($sql);
     }
     if ($result && $result->num_rows > 0) {
