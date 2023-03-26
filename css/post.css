@@ -55,3 +55,10 @@ body{
   display: inline-block;
   font-size: 16px;
 }
+.EnterText{
+    padding:20px;
+}
+#title{
+    width:20em;
+    height:2em;
+}

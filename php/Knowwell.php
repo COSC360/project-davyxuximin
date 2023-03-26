@@ -33,13 +33,15 @@
             <?php
     if (isset($_SESSION['user_id'])) {
         $user_image = getUserImage($connection, $_SESSION['user_id']);
-        echo '<a href="Account.php"><img src="data:image/png;base64,' . base64_encode($user_image) . '" class="right user" /></a>';
+        echo '<a href="Account.php" id="account">';
+        echo '<img src="data:image/png;base64,' . base64_encode($user_image) . '" class="right user" />';
+        echo '</a>';
     } else {
         echo "<a href='login.php' class='right'>Login</a>";
     }
     ?>
               
-              <a href="post.php" class="right">Ask Question</a>
+              <a href="Post.php" class="right">Ask Question</a>
           </div>
     </header>
 </head>
@@ -69,6 +71,7 @@
                 while ($row1=mysqli_fetch_assoc($results1)){
                   if($row1['userid']==$row['userid']){
                     echo '<div class="userinfo">';
+
                     echo '<figure>';
                       echo '<img src="data:image/png;base64,'.base64_encode( $row1['userimage'] ).'" class="user"/>';
                       echo '<figcaption> '.$row1['username'].'</figcaption>';
@@ -81,8 +84,9 @@
                 echo '<div class="qcon-text">';
                 echo "<p>".$row['questcontent']."</p>";
                 echo '</div>';
+                if($row['questimage']!=null){
                 echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['questimage'] ).'"/>';
-                
+                }
                 echo '</div>';
                 echo '</div>';
             }

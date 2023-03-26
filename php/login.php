@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="utf-8">
     <title>KnowWell</title>
-    <link rel = "stylesheet" href="../css/login.css">
+    <link rel = "stylesheet" href="../css/login.css?v=<?php echo time(); ?>">
     <script>
         function validateForm(){
             var x=document.forms["loginInfo"]["email"].value;
@@ -24,7 +24,9 @@
 <body>
     <?php session_start(); ?>
     <div class="name">
+        <a href="Knowwell.php">
         <h1>Know Well</h1>
+    </a>
     </div>
 
 

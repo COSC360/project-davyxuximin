@@ -8,16 +8,36 @@
     <title>Knowwell</title>
     <header>
         <div class="topnav">
-            <a class="active" href="#home" id="home">Home</a>
+            <a class="active" href="Knowwell.php" id="home">Home</a>
             <div class="search-container">
                 <form action="search.php" method="GET">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><img src="../images/topsearch.png"></button>
               </form>
             </div>
-            <?php session_start()?>
-              <a href="login.php" class="right">Login</a>
-              <a href="#" class="right">Ask Question</a>
+            <?php session_start();
+            include "main.php";
+
+            function getUserImage($connection, $user_id) {
+                $sql = "SELECT userimage FROM users WHERE userid=?";
+              $stmt = mysqli_prepare($connection, $sql);
+              mysqli_stmt_bind_param($stmt, "i", $user_id);
+              mysqli_stmt_execute($stmt);
+              $result = mysqli_stmt_get_result($stmt);
+              $row = mysqli_fetch_assoc($result);
+              return $row['userimage'];}
+              ?>
+              <?php
+    if (isset($_SESSION['user_id'])) {
+        $user_image = getUserImage($connection, $_SESSION['user_id']);
+        echo '<a href="Account.php" id="account">';
+        echo '<img src="data:image/png;base64,' . base64_encode($user_image) . '" class="right user" />';
+        echo '</a>';
+    } else {
+        echo "<a href='login.php' class='right'>Login</a>";
+    }
+    ?>
+              <a href="Post.php" class="right">Ask Question</a>
           </div>
     </header>
 </head>
@@ -39,7 +59,7 @@
             $results1 = mysqli_query($connection, $sql1);
             while ($row = $result->fetch_assoc()){
                 echo '<div class="leftAcc"><figure>';
-                echo '<img src="data:image/png;base64,'.base64_encode( $row['userimage'] ).'" class="user"/>';
+                echo '<img src="data:image/png;base64,'.base64_encode( $row['userimage'] ).'" class="user1"/>';
                 echo '<figcaption><h3>'.$row['username'].'</h3></figcaption>';
                 echo '</figure>';
                 echo '<h3>Email: </h3>';
@@ -55,20 +75,27 @@
                 echo '<h3>School: </h3>';
                 echo '<p>'.$row['school'].'</p><br>';
                 echo '</div>';
+                echo ' <form action="logout.php" method="POST">
+                <button type="submit" class="my-button">Log Out</button>
+            </form>';
                 echo '<div class="posts">';
                 echo '<h3>Posts: </h3>';
                 while ($row1=mysqli_fetch_assoc($results1)){
                     if($row['userid'] == $row1['userid']){
                         
                         
-                        echo '<div class="posted">';
+                        echo '<div class="question">';
                         echo '<div class="title">';
                         echo "<h3>".$row1['questtitle']."</h3>";
                         echo "</div>";
+                        echo '<div class="qcon">';
                         echo '<div class="qcon-text">';
                         echo "<p>".$row1['questcontent']."</p>";
                         echo '</div>';
+                        if($row1['questimage']!=null){
                         echo '<img src="data:image/jpeg;base64,'.base64_encode( $row1['questimage'] ).'"/>';
+                        }
+                        echo '</div>';
                         echo '</div>';
                         
                         

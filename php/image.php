@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 if (isset($_POST['text'])) {
     $userId = $_SESSION['user_id'];
     $userName = ''; // Retrieve the username from the users table
-    $questTitle = "Untitled"; // You can set a default value for the questtitle here
+    $questTitle =  $_POST['title']; // You can set a default value for the questtitle here
     $questContent = $_POST['text'];
     $questImage = null;
     $hasImage = false;

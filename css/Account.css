@@ -21,7 +21,7 @@ body {
     border-bottom: 1px solid #90caca;
   }
   
-  .topnav a {
+  .topnav a:not(#account) {
     display: block;
     color: black;
     text-align: center;
@@ -80,7 +80,7 @@ body {
 
   .title{
     padding:5px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px dashed black;
   }
   
   .qcon img{
@@ -89,6 +89,10 @@ body {
   }
   .user{
     width:3em !important;
+    border-radius:50%;
+  }
+  .user1{
+    width: 10em;
     border-radius:50%;
   }
   .userinfo figure{
@@ -106,6 +110,8 @@ body {
   .qcon {
     padding: 5px;
     border-bottom: 1px solid black;
+    height: 20em;
+    overflow: auto;
   }
   
   .rightbar {
@@ -146,3 +152,22 @@ body {
   .posted{
     border-bottom: 1px solid grey;
   }
+  .posts{
+    margin-top:10em;
+  }
+  .my-button {
+  background: linear-gradient(to bottom, #d6fdfd, #90caca);
+  border: 1px solid #90caca;
+  border-radius: 4px;
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.my-button:hover {
+  background: #90caca;
+  border-color: #90caca;
+  cursor: pointer;
+}

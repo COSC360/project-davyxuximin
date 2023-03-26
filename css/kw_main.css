@@ -10,7 +10,7 @@ body {
     border-bottom: 1px solid #90caca;
   }
   
-  .topnav a {
+  .topnav a:not(#account) {
     display: block;
     color: black;
     text-align: center;
@@ -28,7 +28,9 @@ body {
     background-color: #90caca;
     color: white;
   }
-  
+  .topnav img{
+    display: inline-block;
+  }
   .topnav .search-container {
     float: left;
   }
@@ -69,7 +71,7 @@ body {
 
   .title{
     padding:5px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px dashed black;
   }
   
   .qcon img{
@@ -95,6 +97,8 @@ body {
   .qcon {
     padding: 5px;
     border-bottom: 1px solid black;
+    height: 20em;
+    overflow: auto;
   }
   
   .rightbar {
@@ -117,4 +121,7 @@ body {
 
   #account{
     width: 5em;
+  }
+  #searchre{
+    margin-left:3em;
   }
