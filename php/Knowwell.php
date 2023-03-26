@@ -33,7 +33,7 @@
             <?php
     if (isset($_SESSION['user_id'])) {
         $user_image = getUserImage($connection, $_SESSION['user_id']);
-        echo '<img src="data:image/png;base64,' . base64_encode($user_image) . '" class="right user" />';
+        echo '<a href="Account.php"><img src="data:image/png;base64,' . base64_encode($user_image) . '" class="right user" /></a>';
     } else {
         echo "<a href='login.php' class='right'>Login</a>";
     }
