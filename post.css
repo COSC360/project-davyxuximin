@@ -1,0 +1,57 @@
+body{
+    background-color: #d6fdfd;
+}
+
+#main{
+    float: left;
+    margin-left: 5em;
+    margin-bottom: 2em;
+    margin-top: 5em;
+    width: 80%;
+    background-color: white;
+    height: 800px;
+    padding: 20px;
+}
+
+#text{
+    width: 55em;
+    height: 10em;
+    margin-bottom: 2em;
+}
+
+.show{
+    margin-top: 2em;
+    height: 15em;
+    width: 15em;
+}
+
+#image{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2em;
+}
+
+#choose{
+    margin-bottom: 2em;
+}
+
+#pound{
+    height: 1em;
+    width: 1em;
+}
+
+#AddTag{
+    margin-bottom: 2em;
+}
+
+
+
+#post{
+    background-color: #CCFFCC; /* Green */
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

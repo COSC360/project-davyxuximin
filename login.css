@@ -1,0 +1,19 @@
+.name{
+    font-family: Impact, Helvetica, sans-serif;
+    color: #99CCCC;
+    text-align: center;
+}
+
+body{
+    background-image: url(background.png);
+}
+
+.login{
+    text-align: center;
+    color: #99CCCC;
+    margin-left: 10em;
+    margin-right: 10em;
+    height: 30em;
+}
+
+
