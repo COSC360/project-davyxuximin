@@ -13,7 +13,7 @@
         <div class="topnav">
             <a class="active" href="#home" id="home">Home</a>
             <div class="search-container">
-              <form action="http://www.randyconnolly.com/tests/process.php">
+                <form action="search.php" method="GET">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><img src="../images/topsearch.png"></button>
               </form>
