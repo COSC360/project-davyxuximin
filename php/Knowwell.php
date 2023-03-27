@@ -87,6 +87,24 @@
                 if($row['questimage']!=null){
                 echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['questimage'] ).'"/>';
                 }
+
+                if (isset($_SESSION['user_id'])) {
+                  $sql2="SELECT * FROM user_roles WHERE user_id='".$_SESSION['user_id']."'";
+                  $results2 = mysqli_query($connection, $sql2);
+                  while ($row2 = mysqli_fetch_assoc($results2)){
+                    if($row2['is_admin']==1){
+                      $admin=true;
+                    }
+                  }
+                }
+                if($admin){
+                  $qid=$row['questionid'];
+                  echo '<p>'.$qid.'</p>';
+                  echo '<form action="delete.php" method="POST">';
+                  echo '<input type="hidden" name="questionid" value="'.$qid.'">';
+                  echo '<button type="submit">DELETE</button>';
+                    echo '</form>';
+                }
                 echo '</div>';
                 echo '</div>';
             }
@@ -102,8 +120,6 @@
     </ul>
       </div>
 </div>
-        <form action="logout.php" method="POST">
-          <input type="submit">
-      </form>
+       
 </body>
 </html>
