@@ -6,7 +6,7 @@ if ($error != null) {
     exit($output);
 } else {
     if (isset($_POST['submit'])) {
-        $userName = $connection->real_escape_string($_POST['email']);
+        $userName = $connection->real_escape_string($_POST['name']);
         $email = $connection->real_escape_string($_POST['email']);
         $password = $connection->real_escape_string($_POST['password']);
         $password2 = $connection->real_escape_string($_POST['password2']);
