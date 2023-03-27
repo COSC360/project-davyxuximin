@@ -1,10 +1,10 @@
 
 <?php
 
-$host = "localhost";
-$database = "project";
-$user = "root";
-$password = "";
+$host = "cosc360.ok.ubc.ca";
+$database = "db_96916259";
+$user = "96916259";
+$password = "96916259";
 
 $connection = mysqli_connect($host, $user, $password, $database);
 
