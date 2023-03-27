@@ -1,5 +1,5 @@
 CREATE TABLE users (
-  userid INT NOT NULL,
+  userid INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(255),
   userimage BLOB,
   address VARCHAR(255),

@@ -16,6 +16,11 @@ body{
     height: 30em;
 }
 
+.login label{
+    line-height: 2em;
+    vertical-align: middle;
+}
+
 
 a {
     text-decoration: none;
