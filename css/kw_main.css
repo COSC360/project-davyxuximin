@@ -110,6 +110,11 @@ body {
   .rightbar h4{
     padding:1em;
   }
+
+  .rightbartitle{
+   padding:5px;
+  }
+
   .qcon-text{
     width:80%;
     display: inline-block;

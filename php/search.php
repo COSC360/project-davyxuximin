@@ -98,17 +98,24 @@
         echo "<p>No results found</p>";
     }
 
-    // Close the database connection
-    $connection->close();
+
     ?>
         </div>
         <div class='rightbar'>
-      <h4>TOPIC</h4>
+    <h4>Recommended Post</h4>
     <ul class='rightbarlist'>
-        <li>Sport</li>
-        <li>Food</li>
-        <li>Technology</li>
-</div>
+      <?php
+      $sql = "SELECT * FROM questions LIMIT 3;";
+      $results = mysqli_query($connection, $sql);
+      while ($row = mysqli_fetch_assoc($results)){
+        echo '<div class="rightbartitle">';
+        echo "<li><a href='detail.php?id=".$row['questionid']."' class='detail'>".$row['questtitle']."</a></li>";
+        echo "</div>";
+      }            
+      mysqli_close($connection);
+      ?>
+    </ul>
+      </div>
 
     </ul>
       </div>

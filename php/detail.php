@@ -100,14 +100,22 @@
         
         
         ?>
-        <div class='rightbar'>
-      <h4>TOPIC</h4>
+       <div class='rightbar'>
+    <h4>Recommended Post</h4>
     <ul class='rightbarlist'>
-        <li>Sport</li>
-        <li>Food</li>
-        <li>Technology</li>
+      <?php
+      $sql = "SELECT * FROM questions LIMIT 3;";
+      $results = mysqli_query($connection, $sql);
+      while ($row = mysqli_fetch_assoc($results)){
+        echo '<div class="rightbartitle">';
+        echo "<li><a href='detail.php?id=".$row['questionid']."' class='detail'>".$row['questtitle']."</a></li>";
+        echo "</div>";
+      }            
+      mysqli_close($connection);
+      ?>
     </ul>
       </div>
+    </div>
     </div>
 </body>
 </html>
