@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/kw_main.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../css/post.css">
+    <link rel="stylesheet" href="../css/search.css">
     <title>Knowwell</title>
     <header>
-        <?php
+    <?php
   session_start();
   include "main.php";
 
@@ -25,9 +25,10 @@
         <div class="topnav">
             <a class="active" href="Knowwell.php" id="home">Home</a>
             <div class="search-container">
-                <form action="search.php" method="GET">
+              <form action="search.php" method="GET">
                 <input type="text" placeholder="Search.." name="search">
                 <button type="submit"><img src="../images/topsearch.png"></button>
+                
               </form>
             </div>
             <?php
@@ -40,41 +41,41 @@
         echo "<a href='login.php' class='right'>Login</a>";
     }
     ?>
-              <a href="#" class="right">Ask Question</a>
+              
+              <a href="Post.php" class="right">Ask Question</a>
           </div>
     </header>
 </head>
 <body>
-    <h4 id="searchre">Search Results</h4>
- <div class="content">
+<div class="content">
     <div class='questre'>
-    <?php
-    include "main.php";
+        <?php
 
-    if ($error != null) {
-        $output = "<p>Unable to connect to database!</p >";
-        exit($output);
-    } else {
-        // Get the search query from the GET parameters
-        $search = isset($_GET['search']) ? $_GET['search'] : '';
-    
-        // Sanitize the search query to prevent SQL injection
-        $search = $connection->real_escape_string($search);
-    
-    // Perform the search in your database
-    $sql = "SELECT * FROM questions WHERE questcontent LIKE '%$search%' OR questtitle LIKE '%$search%'";
-    $result = $connection->query($sql);
-    $sql1="SELECT * FROM users";
-    $results1 = mysqli_query($connection, $sql1);
-    }
-    if ($result && $result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
+        //question
+        $questionId = $_GET['id'];
+        $sql = "SELECT * FROM questions WHERE questionid=?";
+        $stmt = mysqli_prepare($connection, $sql);
+        mysqli_stmt_bind_param($stmt, "i", $questionId);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+
+
+        while($row = mysqli_fetch_assoc($result)){
             echo '<div class="question">';
                 echo '<div class="title">';
                 echo "<h3>".$row['questtitle']."</h3>";
                 echo "</div>";
                 echo '<div class="qcon">';
-                while ($row1=mysqli_fetch_assoc($results1)){
+                
+                //user
+                $sql1 = "SELECT * FROM users WHERE userid=?";
+                $stmt1 = mysqli_prepare($connection, $sql1);
+                mysqli_stmt_bind_param($stmt1, "i", $row['userid']);
+                mysqli_stmt_execute($stmt1);
+                $result1 = mysqli_stmt_get_result($stmt1);
+
+                while ($row1=mysqli_fetch_assoc($result1)){
                   if($row1['userid']==$row['userid']){
                     echo '<div class="userinfo">';
                     echo '<figure>';
@@ -85,7 +86,7 @@
                     break;
                   }
               }
-              mysqli_data_seek($results1, 0); 
+              mysqli_data_seek($result1, 0); 
                 echo '<div class="qcon-text">';
                 echo "<p>".$row['questcontent']."</p>";
                 echo '</div>';
@@ -93,23 +94,18 @@
                 
                 echo '</div>';
                 echo '</div>';
+                echo '</div>';
         }
-    } else {
-        echo "<p>No results found</p>";
-    }
 
-    // Close the database connection
-    $connection->close();
-    ?>
-        </div>
+        
+        
+        ?>
         <div class='rightbar'>
       <h4>TOPIC</h4>
     <ul class='rightbarlist'>
         <li>Sport</li>
         <li>Food</li>
         <li>Technology</li>
-</div>
-
     </ul>
       </div>
     </div>

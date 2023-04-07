@@ -97,14 +97,14 @@ body {
   .qcon {
     padding: 5px;
     border-bottom: 1px solid black;
-    height: 20em;
+    height: 35em;
     overflow: auto;
   }
   
   .rightbar {
     float: right;
     background-color: white;
-    margin-right: 3em;
+    margin-right: 7em;
     width: 18em;
   }
   .rightbar h4{

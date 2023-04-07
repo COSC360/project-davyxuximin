@@ -65,7 +65,7 @@
             {
               echo '<div class="question">';
                 echo '<div class="title">';
-                echo "<h3>".$row['questtitle']."</h3>";
+                echo "<h3><a href='detail.php?id=".$row['questionid']."' class='detail'>".$row['questtitle']."</a></h3>";
                 echo "</div>";
                 echo '<div class="qcon">';
                 while ($row1=mysqli_fetch_assoc($results1)){
@@ -87,24 +87,6 @@
                 if($row['questimage']!=null){
                 echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['questimage'] ).'"/>';
                 }
-
-                if (isset($_SESSION['user_id'])) {
-                  $sql2="SELECT * FROM user_roles WHERE user_id='".$_SESSION['user_id']."'";
-                  $results2 = mysqli_query($connection, $sql2);
-                  while ($row2 = mysqli_fetch_assoc($results2)){
-                    if($row2['is_admin']==1){
-                      $admin=true;
-                    }
-                  }
-                }
-                if($admin){
-                  $qid=$row['questionid'];
-                  echo '<p>'.$qid.'</p>';
-                  echo '<form action="delete.php" method="POST">';
-                  echo '<input type="hidden" name="questionid" value="'.$qid.'">';
-                  echo '<button type="submit">DELETE</button>';
-                    echo '</form>';
-                }
                 echo '</div>';
                 echo '</div>';
             }
@@ -117,9 +99,11 @@
       <h4>TOPIC</h4>
     <ul class='rightbarlist'>
         <li>Sport</li>
+        <li>Food</li>
+        <li>Technology</li>
     </ul>
       </div>
 </div>
-       
+      </form>
 </body>
 </html>
