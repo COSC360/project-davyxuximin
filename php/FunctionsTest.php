@@ -14,10 +14,10 @@ class FunctionsTest extends TestCase {
         // Create a dummy user with a known image
         $sql = "INSERT INTO users (userid, userimage) VALUES (?, ?)";
         $stmt = mysqli_prepare($this->connection, $sql);
-        $user_id = 1;
-        $user_image = "C:\Users\ROG\Desktop\COSC360\project-davyxuximin\images\profile.jpg";
+        $this->user_id = 1;
+        $this->user_image = "C:\Users\ROG\Desktop\COSC360\project-davyxuximin\images\profile.jpg";
         
-        mysqli_stmt_bind_param($stmt, "is", $user_id, $user_image);
+        mysqli_stmt_bind_param($stmt, "is", $this->user_id, $this->user_image);
         mysqli_stmt_execute($stmt);
         mysqli_begin_transaction($this->connection);
 
