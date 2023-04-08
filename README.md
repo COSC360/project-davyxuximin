@@ -23,7 +23,7 @@ We will create a forum which allows people to ask their questions or share their
 
     For all of the people visiting our website, they have the access to all posts, which means they are able to read everything on our website.
 
-3. Can like the post and leave comments(Only for registered users)
+3. Can leave comments(Only for registered users)
 
     This is only for registered users. They can both like the post and leave comments on posts.
 
