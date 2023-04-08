@@ -114,6 +114,7 @@
 
         }
         ?>
+       
     </div>
     <div class='rightbar'>
     <h4>Recommended Post</h4>

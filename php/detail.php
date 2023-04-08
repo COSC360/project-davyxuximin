@@ -147,13 +147,14 @@ exit();
           echo '<p>' . $commentContent . '</p>';
           echo '<span class="comment-date">' . $commentDate . '</span>';
           echo '</div>';
-          if($_SESSION['admin']=true){
+          if($_SESSION['admin']==true||$_SESSION['user_id']==$userId){
             $commentid=$row2['commentid'];
                   echo '<form action="deletecom.php" method="POST">';
                   echo '<input type="hidden" name="commentid" value="'.$commentid.'">';
                   echo '<button type="submit">DELETE</button>';
                   echo '</form>';
           }
+         
           echo '</div>';
       }
       echo '</div>';
@@ -161,13 +162,13 @@ exit();
         <div class='rightbar'>
     <h4>Recommended Post</h4>
     <ul class='rightbarlist'>
+      
       <?php
+      
       $sql = "SELECT * FROM questions LIMIT 3;";
       $results = mysqli_query($connection, $sql);
-      $count=0;
-      while (($row = mysqli_fetch_assoc($results)) && $count < 5) {
+      while (($row = mysqli_fetch_assoc($results))) {
           echo "<li><a href='detail.php?id=".$row['questionid']."' class='detail'>".$row['questtitle']."</a></li>";
-          $count++;
       }
       
       mysqli_close($connection);

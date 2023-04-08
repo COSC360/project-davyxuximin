@@ -63,7 +63,7 @@
 <div class="EnterText">
             <div id="choose">
             <legend>Choose your image</legend>
-                <input type="file" name="image" id="image">
+                <input type="file" name="image" id="image" accept="image/jpeg, image/png, image/jpg>
 </div>
             </div>
 
