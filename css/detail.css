@@ -133,3 +133,58 @@ body {
   #searchre{
     margin-left:3em;
   }
+  .comment-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.comment-form h2 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.comment-form label {
+  display: block;
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  resize: vertical;
+}
+
+.comment-form button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #0056b3;
+}
+.comment{
+    padding:1em;
+    border-bottom:1px dashed black;
+}
+.comment-date{
+    color:gray;
+    font-size: small;
+}

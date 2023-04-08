@@ -8,7 +8,7 @@
     <title>Knowwell</title>
     <header>
         <div class="topnav">
-            <a class="active" href="Knowwell.php" id="home">Home</a>
+            <a  href="Knowwell.php" id="home">Home</a>
             <div class="search-container">
                 <form action="search.php" method="GET">
                 <input type="text" placeholder="Search.." name="search">

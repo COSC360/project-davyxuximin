@@ -62,3 +62,7 @@ body{
     width:20em;
     height:2em;
 }
+
+legend{
+    font-weight: bold;
+}

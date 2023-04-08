@@ -8,9 +8,11 @@
     <title>Knowwell</title>
     <header>
     <?php
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
   session_start();
   include "main.php";
-
+  $admin=false;
   function getUserImage($connection, $user_id) {
       $sql = "SELECT userimage FROM users WHERE userid=?";
     $stmt = mysqli_prepare($connection, $sql);
@@ -18,11 +20,12 @@
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     $row = mysqli_fetch_assoc($result);
+    
     return $row['userimage'];
 }
 ?>
         <div class="topnav">
-            <a class="active" href="#home" id="home">Home</a>
+            <a class="active" href="Knowwell.php" id="home">Home</a>
             <div class="search-container">
               <form action="search.php" method="GET">
                 <input type="text" placeholder="Search.." name="search">
@@ -65,7 +68,7 @@
             {
               echo '<div class="question">';
                 echo '<div class="title">';
-                echo "<h3>".$row['questtitle']."</h3>";
+                echo "<h3><a href='detail.php?id=".$row['questionid']."' class='detail'>".$row['questtitle']."</a></h3>";
                 echo "</div>";
                 echo '<div class="qcon">';
                 while ($row1=mysqli_fetch_assoc($results1)){
@@ -87,7 +90,6 @@
                 if($row['questimage']!=null){
                 echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['questimage'] ).'"/>';
                 }
-
                 if (isset($_SESSION['user_id'])) {
                   $sql2="SELECT * FROM user_roles WHERE user_id='".$_SESSION['user_id']."'";
                   $results2 = mysqli_query($connection, $sql2);
@@ -99,7 +101,6 @@
                 }
                 if($admin){
                   $qid=$row['questionid'];
-                  echo '<p>'.$qid.'</p>';
                   echo '<form action="delete.php" method="POST">';
                   echo '<input type="hidden" name="questionid" value="'.$qid.'">';
                   echo '<button type="submit">DELETE</button>';
@@ -108,18 +109,29 @@
                 echo '</div>';
                 echo '</div>';
             }
+            $_SESSION['admin']=$admin;
             mysqli_free_result($results);
-            mysqli_close($connection);
+
         }
         ?>
     </div>
     <div class='rightbar'>
-      <h4>TOPIC</h4>
+    <h4>Recommended Post</h4>
     <ul class='rightbarlist'>
-        <li>Sport</li>
+      <?php
+      $sql = "SELECT * FROM questions LIMIT 3;";
+      $results = mysqli_query($connection, $sql);
+      $count=0;
+      while (($row = mysqli_fetch_assoc($results)) && $count < 5) {
+          echo "<li><a href='detail.php?id=".$row['questionid']."' class='detail'>".$row['questtitle']."</a></li>";
+          $count++;
+      }
+      
+      mysqli_close($connection);
+      ?>
     </ul>
       </div>
 </div>
-       
+      </form>
 </body>
 </html>

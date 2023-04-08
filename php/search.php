@@ -23,7 +23,7 @@
 }
 ?>
         <div class="topnav">
-            <a class="active" href="Knowwell.php" id="home">Home</a>
+            <a href="Knowwell.php" id="home">Home</a>
             <div class="search-container">
                 <form action="search.php" method="GET">
                 <input type="text" placeholder="Search.." name="search">
@@ -98,11 +98,27 @@
         echo "<p>No results found</p>";
     }
 
-    // Close the database connection
-    $connection->close();
+
     ?>
         </div>
-</div>
+        <div class='rightbar'>
+    <h4>Recommended Post</h4>
+    <ul class='rightbarlist'>
+      <?php
+      $sql = "SELECT * FROM questions LIMIT 3;";
+      $results = mysqli_query($connection, $sql);
+      while ($row = mysqli_fetch_assoc($results)){
+        echo '<div class="rightbartitle">';
+        echo "<li><a href='detail.php?id=".$row['questionid']."' class='detail'>".$row['questtitle']."</a></li>";
+        echo "</div>";
+      }            
+      mysqli_close($connection);
+      ?>
+    </ul>
+      </div>
+
+    </ul>
+      </div>
     </div>
 </body>
 </html>

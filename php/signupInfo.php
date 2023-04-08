@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors','1');
 include "main.php";
 
 if ($error != null) {
@@ -20,12 +18,12 @@ if ($error != null) {
         $userImage = file_get_contents($_FILES['image']['tmp_name']);
 
 
-        $stmt = $connection->prepare("INSERT INTO users (username, email, password, userimage, address, phone, sex, school) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $connection->prepare("INSERT INTO users (username, email, password, userimage, address, phone, sex, school)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssbssss", $userName, $email, $password, $userImage, $address, $phone_number, $gender, $school);
     $stmt->send_long_data(3, $userImage);
         if ($stmt->execute()) {
-            header("Location: login.php");
-            exit();
+            echo "New record created successfully";
         } else {
             echo "Error: " . $stmt->error;
         }
