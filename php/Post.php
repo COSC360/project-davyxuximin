@@ -20,7 +20,10 @@
             </div>
             <?php session_start();
             include "main.php";
-
+            if(!isset($_SESSION['user_id'])){
+                header("Location: login.php");
+                exit();
+            }
             function getUserImage($connection, $user_id) {
                 $sql = "SELECT userimage FROM users WHERE userid=?";
               $stmt = mysqli_prepare($connection, $sql);
