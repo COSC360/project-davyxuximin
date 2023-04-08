@@ -71,7 +71,7 @@
         while($row = $result->fetch_assoc()) {
             echo '<div class="question">';
                 echo '<div class="title">';
-                echo "<h3>".$row['questtitle']."</h3>";
+                echo "<h3><a href='detail.php?id=".$row['questionid']."' class='detail'>".$row['questtitle']."</a></h3>";
                 echo "</div>";
                 echo '<div class="qcon">';
                 while ($row1=mysqli_fetch_assoc($results1)){
