@@ -41,7 +41,7 @@
         <input type="password" name="password" value=""><br><br>
         
         <input type="submit" value="Log in">
-        <p>Don't have an account?<a href="../html/signup.html">Sign up</a></p>
+        <p>Don't have an account?<a href="signup.php">Sign up</a></p>
        </fieldset>
     </form>
 
